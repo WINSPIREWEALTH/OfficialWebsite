@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winspire Wealth - About Us</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFD700;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 15% 25%, rgba(255, 215, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.04) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #111111 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, transparent 100%);
+            border-bottom: 4px solid #FFD700;
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.03), transparent);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: translateX(-50%) scaleX(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scaleX(1.2);
+            }
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .company-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 6rem;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow:
+                0 0 30px rgba(255, 215, 0, 0.9),
+                0 0 60px rgba(255, 215, 0, 0.7),
+                0 0 90px rgba(255, 215, 0, 0.5);
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+            animation: goldPulse 3s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes goldPulse {
+            0% {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 215, 0, 0.7), 0 0 90px rgba(255, 215, 0, 0.5);
+                transform: scale(1);
+            }
+
+            100% {
+                text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 0.9), 0 0 120px rgba(255, 215, 0, 0.7);
+                transform: scale(1.02);
+            }
+        }
+
+        .company-tagline {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .luxury-divider {
+            width: 400px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
+            margin: 0 auto 50px;
+            animation: dividerGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes dividerGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: #FFD700;
+            opacity: 0.85;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 80px 0;
+        }
+
+        .about-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 0, 0, 0.95) 100%);
+            border: 3px solid #FFD700;
+            border-radius: 25px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
+        }
+
+        .about-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 215, 0, 0.3);
+            border-color: #FFA500;
+        }
+
+        .about-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .about-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 215, 0, 0.9);
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        .founder-highlight {
+            color: #FFD700;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .vision-mission-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 100px 0;
+        }
+
+        .vision-card,
+        .mission-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+            border: 4px solid #FFD700;
+            border-radius: 30px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .vision-card::before,
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.15), transparent);
+            transition: left 0.8s;
+        }
+
+        .vision-card:hover::before,
+        .mission-card:hover::before {
+            left: 100%;
+        }
+
+        .vision-card:hover,
+        .mission-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 70px rgba(255, 215, 0, 0.25);
+        }
+
+        .vision-title,
+        .mission-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            color: #FFD700;
+            margin-bottom: 35px;
+            font-weight: 900;
+            text-align: center;
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+            position: relative;
+            z-index: 2;
+        }
+
+        .vision-content {
+            font-size: 1.4rem;
+            color: #FFD700;
+            font-style: italic;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.9;
+            font-family: 'Cinzel', serif;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-list {
+            list-style: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-list li {
+            font-size: 1.2rem;
+            color: rgba(255, 215, 0, 0.95);
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            line-height: 1.7;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .mission-list li:hover {
+            color: #FFD700;
+            transform: translateX(10px);
+        }
+
+        .mission-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        .values-section {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            color: #000;
+            padding: 80px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
+        }
+
+        .values-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, rgba(0, 0, 0, 0.1), transparent, rgba(0, 0, 0, 0.1));
+            animation: rotate 15s linear infinite;
+        }
+
+        .values-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .values-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .values-text {
+            font-size: 1.6rem;
+            line-height: 1.9;
+            font-weight: 600;
+            max-width: 900px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 100px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.12), transparent);
+            animation: rotate 5s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .stat-box:hover::before {
+            opacity: 1;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 25px 70px rgba(255, 215, 0, 0.35);
+            border-color: #FFA500;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 1024px) {
+
+            .about-grid,
+            .vision-mission-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .company-logo {
+                font-size: 4rem;
+            }
+
+            .company-tagline {
+                font-size: 1.2rem;
+                letter-spacing: 3px;
+            }
+
+            .about-card,
+            .vision-card,
+            .mission-card {
+                padding: 40px;
+            }
+
+            .values-section {
+                padding: 60px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .company-logo {
+                font-size: 3rem;
+            }
+
+            .company-tagline {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .about-card h2 {
+                font-size: 2.2rem;
+            }
+
+            .vision-title,
+            .mission-title {
+                font-size: 2.5rem;
+            }
+
+            .values-title {
+                font-size: 2.8rem;
+            }
+
+            .about-card,
+            .vision-card,
+            .mission-card {
+                padding: 30px;
+            }
+
+            .values-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="founder.html">Founder Profile</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="why.html">Why Winspire</a></li>
+            <li><a href="philosophy.html">Our Philosophy</a></li>
+        </ul>
+    </nav>
+
+    <style>
+        .navbar {
+            background-color: #111;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffffff;
+        }
+    </style>
+
+    <div class="luxury-bg"></div>
+
+    <div class="container">
+        <header class="hero-section">
+            <h1 class="company-logo">WINSPIRE WEALTH</h1>
+            <p class="company-tagline">Premium Insurance & Wealth Advisory</p>
+            <div class="luxury-divider"></div>
+            <p class="hero-subtitle">Where Dreams Meet Security</p>
+        </header>
+
+        <section class="about-grid">
+            <div class="about-card">
+                <h2>ABOUT US</h2>
+                <p>
+                    Founded by <span class="founder-highlight">Anant V. Shet</span> - a name synonymous with trust and
+                    performance in the Indian insurance industry - Winspire Wealth is one of India's most respected
+                    insurance and wealth advisory firms.
+                    <br><br>
+                    For over <span class="founder-highlight">35 years</span>, we've empowered thousands of families with
+                    secure, honest, and ethical financial planning.
+                    <br><br>
+                    We don't just sell policies. <span class="founder-highlight">We protect dreams, families, and
+                        futures.</span>
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>OUR LEGACY</h2>
+                <p>
+                    Built on a foundation of <span class="founder-highlight">integrity and excellence</span>, Winspire
+                    Wealth represents decades of unwavering commitment to client success.
+                    <br><br>
+                    Our founder's legendary status as a <span class="founder-highlight">19× MDRT achiever</span> and
+                    industry pioneer has established us as the gold standard in insurance advisory services.
+                    <br><br>
+                    Every policy we craft, every claim we settle, reflects our dedication to <span
+                        class="founder-highlight">ethical financial protection.</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="vision-mission-section">
+            <div class="vision-card">
+                <h2 class="vision-title">VISION</h2>
+                <p class="vision-content">
+                    "To secure every Indian family's future with ethical, fast, and honest financial services that stand
+                    the test of time."
+                </p>
+            </div>
+
+            <div class="mission-card">
+                <h2 class="mission-title">MISSION</h2>
+                <ul class="mission-list">
+                    <li>Deliver transparent and personalized insurance and wealth planning</li>
+                    <li>Create and mentor the next generation of MDRTs and industry leaders</li>
+                    <li>Redefine trust in insurance services through zero-commission death claim settlements</li>
+                    <li>Be known as the most client-trusted firm in India for financial protection and legacy building
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="values-content">
+                <h2 class="values-title">THE WINSPIRE DIFFERENCE</h2>
+                <p class="values-text">
+                    In a world where trust is earned through actions, not words, Winspire Wealth stands as a beacon of
+                    integrity. We don't just promise security—we deliver it with unwavering commitment, ethical
+                    practices, and a legacy that speaks for itself.
+                </p>
+            </div>
+        </section>
+
+        <section class="stats-showcase">
+            <div class="stat-box">
+                <div class="stat-number">35+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">1000s</div>
+                <div class="stat-label">Families Protected</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">₹0</div>
+                <div class="stat-label">Death Claim Fees</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Ethical Standards</div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

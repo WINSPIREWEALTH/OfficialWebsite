@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winspire Wealth - Portfolio Brochure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .brochure-container {
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image:
+                radial-gradient(circle at 25% 25%, #FFD700 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #FFD700 1px, transparent 1px);
+            background-size: 100px 100px, 150px 150px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+        }
+
+        /* Header Section */
+        .header {
+            position: relative;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                filter: brightness(1);
+            }
+
+            50% {
+                filter: brightness(1.2);
+            }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #cccccc;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 5rem 2rem;
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #FFD700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .philosophy-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .philosophy-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .philosophy-card:hover::before {
+            opacity: 1;
+            animation: shine 0.6s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .philosophy-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .philosophy-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
+
+        /* Services Preview */
+        .services-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            background: rgba(255, 215, 0, 0.08);
+            border-left: 4px solid #FFD700;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: rgba(255, 215, 0, 0.15);
+            transform: translateX(10px);
+        }
+
+        .service-title {
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-desc {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            color: #FFD700;
+        }
+
+        /* Decorative elements */
+        .decorative-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            margin: 2rem auto;
+        }
+
+        .gold-accent {
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .philosophy-card {
+                padding: 2rem;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="founder.html">Founder Profile</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="why.html">Why Winspire</a></li>
+            <li><a href="philosophy.html">Our Philosophy</a></li>
+        </ul>
+    </nav>
+
+    <style>
+        .navbar {
+            background-color: #111;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffffff;
+        }
+    </style>
+
+    <div class="brochure-container">
+        <div class="bg-pattern"></div>
+
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">WINSPIRE WEALTH</h1>
+            <p class="tagline">PREMIUM WEALTH MANAGEMENT</p>
+            <div class="decorative-line"></div>
+        </header>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy-section">
+            <h2 class="section-title fade-in">Our Philosophy</h2>
+            <div class="philosophy-grid">
+                <div class="philosophy-card fade-in">
+                    <span class="philosophy-icon">🤝</span>
+                    <h3 class="philosophy-title">Service Above Self</h3>
+                    <p class="philosophy-text">We prioritize your financial success and well-being above all else. Your
+                        goals become our mission, and your prosperity is our greatest achievement.</p>
+                </div>
+
+                <div class="philosophy-card fade-in">
+                    <span class="philosophy-icon">💎</span>
+                    <h3 class="philosophy-title">Honesty Above Profits</h3>
+                    <p class="philosophy-text">Transparency and integrity guide every decision we make. We believe that
+                        honest relationships create lasting wealth and sustainable success.</p>
+                </div>
+
+                <div class="philosophy-card fade-in">
+                    <span class="philosophy-icon">👥</span>
+                    <h3 class="philosophy-title">People Before Policies</h3>
+                    <p class="philosophy-text">Every client is unique, and so is their financial journey. We craft
+                        personalized solutions that put your human needs before rigid policies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <h4 class="service-title">Wealth Management</h4>
+                    <p class="service-desc">Comprehensive portfolio management and investment strategies</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h4 class="service-title">Financial Planning</h4>
+                    <p class="service-desc">Strategic planning for retirement, education, and life goals</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h4 class="service-title">Estate Planning</h4>
+                    <p class="service-desc">Protecting and transferring your legacy to future generations</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h4 class="service-title">Tax Optimization</h4>
+                    <p class="service-desc">Minimizing tax liability through strategic planning</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h4 class="service-title">Risk Management</h4>
+                    <p class="service-desc">Protecting your wealth through comprehensive insurance solutions</p>
+                </div>
+                <div class="service-item fade-in">
+                    <h4 class="service-title">Investment Advisory</h4>
+                    <p class="service-desc">Expert guidance on market opportunities and portfolio optimization</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title fade-in">Connect With Excellence</h2>
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <strong>Phone:</strong> +91 74118 36518
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong> admin@winspirewealth.com
+                </div>
+                <div class="contact-item">
+                    <strong>Address:</strong> 912, 28th Main Road, Behind Karnataka Bank,
+                    Jayanagar 9th Block, Bengaluru- 560069
+                </div>
+                <div class="decorative-line"></div>
+                <p style="color: #FFD700; font-style: italic; margin-top: 2rem;">
+                    "Inspiring wealth, one relationship at a time"
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive sparkle effect
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.98) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '4px';
+            sparkle.style.height = '4px';
+            sparkle.style.background = '#FFD700';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkleAnim 1s ease-out forwards';
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        // Add sparkle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleAnim {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1) rotate(180deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(0) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>

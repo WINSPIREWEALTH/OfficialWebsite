@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Growth Journey Timeline</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000000 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            letter-spacing: -2px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: 60%;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: 60%;
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            border-color: #FFD700;
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.2);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid rgba(255, 215, 0, 0.3);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 20px solid rgba(255, 215, 0, 0.3);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: #FFD700;
+            border-radius: 50%;
+            border: 4px solid #000000;
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.6);
+            z-index: 10;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-dot:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+            box-shadow: 0 0 0 8px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.8);
+        }
+
+        .year {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .milestone-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .milestone-desc {
+            font-size: 1rem;
+            color: #cccccc;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000000;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .stats-section {
+            margin-top: 100px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.02) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 25px;
+            padding: 60px 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            position: relative;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #FFD700;
+            display: block;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #cccccc;
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFD700;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 80px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -20px;
+                border-right: 20px solid rgba(255, 215, 0, 0.3);
+                border-left: none;
+            }
+
+            .year {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="founder.html">Founder Profile</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="why.html">Why Winspire</a></li>
+            <li><a href="philosophy.html">Our Philosophy</a></li>
+        </ul>
+    </nav>
+
+    <style>
+        .navbar {
+            background-color: #111;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffffff;
+        }
+    </style>
+
+    <div class="floating-elements">
+        <div class="floating-dot" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="floating-dot" style="left: 80%; top: 10%; animation-delay: 1s;"></div>
+        <div class="floating-dot" style="left: 60%; top: 30%; animation-delay: 2s;"></div>
+        <div class="floating-dot" style="left: 20%; top: 70%; animation-delay: 3s;"></div>
+        <div class="floating-dot" style="left: 90%; top: 60%; animation-delay: 4s;"></div>
+        <div class="floating-dot" style="left: 40%; top: 80%; animation-delay: 5s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Our Legacy of Excellence</h1>
+            <p>Three and a Half Decades of Unwavering Commitment</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">1990</div>
+                    <div class="milestone-title">The Foundation Stone</div>
+                    <div class="milestone-desc">Embarked on a transformative journey in life insurance, driven by a
+                        vision to secure financial futures and build generational wealth for families across India.
+                    </div>
+                    <div class="achievement-badge">Career Launch</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">2000</div>
+                    <div class="milestone-title">Trust Established</div>
+                    <div class="milestone-desc">Reached a remarkable milestone of 400+ satisfied clients, establishing
+                        ourselves as a trusted partner in wealth management and financial planning.</div>
+                    <div class="achievement-badge">400+ Clients</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">2001</div>
+                    <div class="milestone-title">Global Recognition</div>
+                    <div class="milestone-desc">Achieved the prestigious MDRT (Million Dollar Round Table)
+                        qualification, joining an elite group of top insurance professionals worldwide.</div>
+                    <div class="achievement-badge">MDRT Qualified</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">2010</div>
+                    <div class="milestone-title">Regional Dominance</div>
+                    <div class="milestone-desc">Became the Top Ranker in Bangalore Division, maintaining consistent
+                        excellence and leadership in one of India's most competitive markets.</div>
+                    <div class="achievement-badge">Top Ranker</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">2016</div>
+                    <div class="milestone-title">National Excellence</div>
+                    <div class="milestone-desc">Achieved Double MDRT status and secured Top 4 ranking across India,
+                        demonstrating exceptional performance and unwavering commitment to client success.</div>
+                    <div class="achievement-badge">Top 4 India</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">2020</div>
+                    <div class="milestone-title">Crisis Leadership</div>
+                    <div class="milestone-desc">During the unprecedented COVID-19 lockdown, successfully settled 28
+                        death claims, standing as a beacon of hope and reliability for families in their darkest hours.
+                    </div>
+                    <div class="achievement-badge">28 Claims Settled</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="year">2025</div>
+                    <div class="milestone-title">Legacy Continues</div>
+                    <div class="milestone-desc">Proudly serving over 3,000 loyal clients with unwavering dedication,
+                        continuing to grow and evolve while maintaining our core values of trust, excellence, and
+                        client-first approach.</div>
+                    <div class="achievement-badge">3000+ Clients</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #FFD700; margin-bottom: 20px;">
+                Our Impact in Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="35">0</span>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="3000">0</span>
+                    <div class="stat-label">Loyal Clients</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="28">0</span>
+                    <div class="stat-label">Claims Settled (2020)</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4">0</span>
+                    <div class="stat-label">National Ranking</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for timeline animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Animate numbers with easing
+        function animateNumber(element, target, duration = 2000) {
+            let start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.round(start + (target - start) * easeOutQuart);
+
+                if (target === 3000) {
+                    element.textContent = current.toLocaleString() + '+';
+                } else if (element.closest('.stat-item').querySelector('.stat-label').textContent.includes('Ranking')) {
+                    element.textContent = 'Top ' + current;
+                } else {
+                    element.textContent = current.toLocaleString();
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Trigger number animations when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach((num, index) => {
+                        const target = parseInt(num.dataset.target);
+                        setTimeout(() => {
+                            animateNumber(num, target);
+                        }, index * 200);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(document.querySelector('.stats-section'));
+
+        // Add parallax effect to floating dots
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+
+            document.querySelectorAll('.floating-dot').forEach((dot, index) => {
+                const speed = (index + 1) * 0.1;
+                dot.style.transform = `translateY(${rate * speed}px)`;
+            });
+        });
+
+        // Enhanced hover effects for timeline dots
+        document.querySelectorAll('.timeline-dot').forEach(dot => {
+            dot.addEventListener('mouseenter', function () {
+                this.style.background = 'radial-gradient(circle, #FFD700, #FFA500)';
+                this.style.transform = 'translate(-50%, -50%) scale(1.5) rotate(360deg)';
+                this.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+
+            dot.addEventListener('mouseleave', function () {
+                this.style.background = '#FFD700';
+                this.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+
+</html>

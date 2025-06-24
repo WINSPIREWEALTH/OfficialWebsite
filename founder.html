@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Anant V. Shet - Insurance Legend</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFD700;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .luxury-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #111111 25%, #000000 50%, #0a0a0a 75%, #000000 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+            border-bottom: 3px solid #FFD700;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: translateX(-50%) scaleX(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+        .founder-name {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow:
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(255, 215, 0, 0.4);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            animation: goldGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes goldGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4);
+            }
+
+            100% {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.8), 0 0 90px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .founder-title {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .luxury-divider {
+            width: 300px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            margin: 0 auto 40px;
+        }
+
+        .tagline {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #FFD700;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+            border-color: #FFA500;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #FFD700;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .achievements-table {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(0, 0, 0, 0.95) 100%);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 60px 0;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
+        }
+
+        .table-header {
+            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            color: #000;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .table-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .table-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 0;
+        }
+
+        .achievement-item {
+            padding: 30px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            border-right: 1px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .achievement-item:hover::before {
+            left: 100%;
+        }
+
+        .achievement-item:hover {
+            background: rgba(255, 215, 0, 0.05);
+            transform: scale(1.02);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: #FFD700;
+            font-weight: 900;
+            font-family: 'Cinzel', serif;
+            min-width: 80px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .achievement-content h3 {
+            font-size: 1.3rem;
+            color: #FFD700;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .achievement-content p {
+            color: rgba(255, 215, 0, 0.8);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .performance-chart {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(0, 0, 0, 0.95) 100%);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .chart-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .chart-bars {
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+            height: 300px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .chart-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 100px;
+        }
+
+        .bar {
+            width: 60px;
+            background: linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #B8860B 100%);
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            animation: growBar 2s ease-out;
+        }
+
+        @keyframes growBar {
+            from {
+                height: 0;
+            }
+
+            to {
+                height: var(--height);
+            }
+        }
+
+        .bar-label {
+            color: #FFD700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FFD700;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        .legacy-section {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            color: #000;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legacy-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, rgba(0, 0, 0, 0.1), transparent, rgba(0, 0, 0, 0.1));
+            animation: rotate 10s linear infinite;
+        }
+
+        .legacy-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .legacy-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .legacy-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            font-weight: 500;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .founder-name {
+                font-size: 3rem;
+            }
+
+            .founder-title {
+                font-size: 1.2rem;
+                letter-spacing: 4px;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .chart-bars {
+                height: 200px;
+            }
+
+            .legacy-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="founder.html">Founder Profile</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="why.html">Why Winspire</a></li>
+            <li><a href="philosophy.html">Our Philosophy</a></li>
+        </ul>
+    </nav>
+
+    <style>
+        .navbar {
+            background-color: #111;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffffff;
+        }
+    </style>
+
+    <div class="luxury-bg"></div>
+
+    <div class="container">
+        <header class="header-section">
+            <h1 class="founder-name">MR. ANANT V. SHET</h1>
+            <p class="founder-title">Chief Life Insurance Advisor</p>
+            <div class="luxury-divider"></div>
+            <p class="tagline">LIC Legend • Mentor to Many • Integrity Icon</p>
+        </header>
+
+        <section class="stats-dashboard">
+            <div class="stat-card">
+                <div class="stat-number">35+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">19×</div>
+                <div class="stat-label">MDRT Achiever</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3000+</div>
+                <div class="stat-label">Clients Served</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">128</div>
+                <div class="stat-label">Claims Settled</div>
+            </div>
+        </section>
+
+        <section class="achievements-table">
+            <div class="table-header">
+                <h2 class="table-title">LEGENDARY ACHIEVEMENTS</h2>
+                <p class="table-subtitle">Excellence Redefined Since 1990</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">1990</div>
+                    <div class="achievement-content">
+                        <h3>Industry Pioneer</h3>
+                        <p>Started the journey in insurance industry, establishing a foundation of trust and excellence
+                        </p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-content">
+                        <h3>19× MDRT Achievement</h3>
+                        <p>Million Dollar Round Table - USA recognition for consistent exceptional performance</p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">🥇</div>
+                    <div class="achievement-content">
+                        <h3>India's First Corporate Club</h3>
+                        <p>Created India's First Corporate Club Member, pioneering innovative industry approaches</p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-content">
+                        <h3>2-Hour Claim Settlement</h3>
+                        <p>Fastest death claim settlement record - State Award recipient for exceptional service</p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">🎯</div>
+                    <div class="achievement-content">
+                        <h3>Lockdown Hero</h3>
+                        <p>Settled 28 death claims during lockdown, proving unwavering commitment to clients</p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">💎</div>
+                    <div class="achievement-content">
+                        <h3>Service Above Self</h3>
+                        <p>Never charged a rupee for death claim services - embodying true integrity</p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">🌟</div>
+                    <div class="achievement-content">
+                        <h3>Master Mentor</h3>
+                        <p>Mentored multiple MDRT achievers, creating a legacy of excellence beyond personal success</p>
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon">📈</div>
+                    <div class="achievement-content">
+                        <h3>1000+ Maturities</h3>
+                        <p>Policy maturities delivered, ensuring financial security for countless families</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="performance-chart">
+            <h2 class="chart-title">PERFORMANCE EXCELLENCE OVER DECADES</h2>
+            <div class="chart-bars">
+                <div class="chart-bar">
+                    <div class="bar" style="--height: 250px; height: 250px;">
+                        <span class="bar-value">3000+</span>
+                    </div>
+                    <div class="bar-label">Total Clients</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="bar" style="--height: 200px; height: 200px;">
+                        <span class="bar-value">1000+</span>
+                    </div>
+                    <div class="bar-label">Maturities Delivered</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="bar" style="--height: 180px; height: 180px;">
+                        <span class="bar-value">128</span>
+                    </div>
+                    <div class="bar-label">Claims Settled</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="bar" style="--height: 220px; height: 220px;">
+                        <span class="bar-value">35+</span>
+                    </div>
+                    <div class="bar-label">Years Experience</div>
+                </div>
+                <div class="chart-bar">
+                    <div class="bar" style="--height: 190px; height: 190px;">
+                        <span class="bar-value">19×</span>
+                    </div>
+                    <div class="bar-label">MDRT Awards</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="legacy-section">
+            <div class="legacy-content">
+                <h2 class="legacy-title">THE GOLDEN STANDARD</h2>
+                <p class="legacy-text">
+                    "In the world of insurance, where trust is the ultimate currency, Mr. Anant V. Shet has built an
+                    empire of integrity. His legacy transcends numbers—it's measured in the lives transformed, families
+                    secured, and the golden standard of excellence he has set for generations to follow."
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Wealth Management Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000000 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #cccccc;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding: 0 1rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ffd700, transparent, #ffd700);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        .stat-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .stat-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-description {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .achievements-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+
+        .achievement-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .achievement-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .achievement-card:hover::before {
+            left: 100%;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-desc {
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: -2s;
+        }
+
+        .floating-elements::after {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .associations-section {
+            padding: 6rem 0;
+            background: linear-gradient(160deg, rgba(255, 215, 0, 0.08) 0%, rgba(0, 0, 0, 0.95) 40%, rgba(255, 215, 0, 0.08) 100%);
+            position: relative;
+        }
+
+        .associations-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .associations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .association-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.06), rgba(0, 0, 0, 0.9));
+            border: 2px solid rgba(255, 215, 0, 0.25);
+            border-radius: 25px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .association-card.flagship {
+            border-color: rgba(255, 215, 0, 0.6);
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.12), rgba(0, 0, 0, 0.85));
+        }
+
+        .association-card.premium {
+            border-color: rgba(255, 215, 0, 0.5);
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(0, 0, 0, 0.88));
+        }
+
+        .association-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.08), transparent);
+            transition: left 0.6s ease;
+            z-index: 0;
+        }
+
+        .association-card:hover::before {
+            left: 100%;
+        }
+
+        .association-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.8);
+        }
+
+        .association-logo {
+            position: relative;
+            margin: 0 auto 2rem;
+            width: 90px;
+            height: 90px;
+        }
+
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000000;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-pulse {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid rgba(255, 215, 0, 0.4);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .logo-shimmer {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffd700, transparent, #ffd700) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: rotate 4s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+        }
+
+        .association-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .association-type {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .association-desc {
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .association-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            color: #ffd700;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 3rem 0;
+            background: rgba(255, 215, 0, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .trust-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .trust-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nextgen-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(0, 0, 0, 0.95) 50%, rgba(255, 215, 0, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nextgen-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="none" stroke="rgba(255,215,0,0.1)" stroke-width="0.5"/></svg>') repeat;
+            background-size: 50px 50px;
+            opacity: 0.3;
+            animation: float 20s linear infinite;
+        }
+
+        .nextgen-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .nextgen-intro {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leader-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .leader-avatar {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000000;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .avatar-ring {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffd700, transparent, #ffd700) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .leader-info {
+            text-align: left;
+        }
+
+        .leader-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .leader-subtitle {
+            font-size: 1.1rem;
+            color: #cccccc;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .nextgen-description {
+            font-size: 1.2rem;
+            color: #dddddd;
+            line-height: 1.6;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .nextgen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .nextgen-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.9));
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .nextgen-card.primary {
+            border-color: rgba(255, 215, 0, 0.6);
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(0, 0, 0, 0.85));
+        }
+
+        .nextgen-card.digital {
+            border-color: rgba(255, 215, 0, 0.4);
+            background: linear-gradient(145deg, rgba(135, 206, 235, 0.1), rgba(0, 0, 0, 0.9));
+        }
+
+        .nextgen-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent, rgba(255, 215, 0, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 18px;
+            z-index: 0;
+        }
+
+        .nextgen-card:hover::before {
+            opacity: 1;
+        }
+
+        .nextgen-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.25);
+            border-color: rgba(255, 215, 0, 0.7);
+        }
+
+        .nextgen-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .nextgen-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nextgen-desc {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nextgen-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .expansion-focus {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255, 215, 0, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .focus-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .focus-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .focus-item {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .focus-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .focus-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .focus-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .leadership-section {
+            padding: 6rem 0;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.03) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(255, 215, 0, 0.03) 100%);
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 4rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .leadership-card {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.9));
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .leadership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent, rgba(255, 215, 0, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 18px;
+            z-index: 0;
+        }
+
+        .leadership-card:hover::before {
+            opacity: 1;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.25);
+            border-color: rgba(255, 215, 0, 0.6);
+        }
+
+        .leadership-card.featured {
+            border-color: rgba(255, 215, 0, 0.5);
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.12), rgba(0, 0, 0, 0.85));
+        }
+
+        .leadership-card.featured:hover {
+            border-color: rgba(255, 215, 0, 0.8);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .leadership-card.premium {
+            border-color: rgba(255, 215, 0, 0.7);
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(0, 0, 0, 0.8));
+            position: relative;
+        }
+
+        .leadership-card.premium::after {
+            content: '✨';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.2rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1) rotate(180deg);
+            }
+        }
+
+        .leadership-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .leadership-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #000000;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leadership-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leadership-desc {
+            color: #cccccc;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leadership-highlight {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #000000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+            background: linear-gradient(45deg, #ffed4e, #ffd700);
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-card {
+                padding: 2rem;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .leader-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .leader-info {
+                text-align: center;
+            }
+
+            .focus-grid {
+                gap: 2rem;
+            }
+
+            .trust-indicators {
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            .associations-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .association-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .nextgen-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="founder.html">Founder Profile</a></li>
+            <li><a href="timeline.html">Timeline</a></li>
+            <li><a href="why.html">Why Winspire</a></li>
+            <li><a href="philosophy.html">Our Philosophy</a></li>
+        </ul>
+    </nav>
+
+    <style>
+        .navbar {
+            background-color: #111;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffffff;
+        }
+    </style>
+
+    <div class="floating-elements"></div>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="main-title">Excellence in Wealth Management</h1>
+                <p class="subtitle">Where Legacy Meets Innovation</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-number">₹300+</div>
+                        <div class="stat-title">Crores Managed</div>
+                        <div class="stat-description">Comprehensive wealth management across insurance, investments, and
+                            retirement planning with unmatched expertise</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-number">98%</div>
+                        <div class="stat-title">Client Retention</div>
+                        <div class="stat-description">A testament to our unwavering commitment and personalized service
+                            excellence that builds lasting relationships</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🌍</div>
+                        <div class="stat-number">25+</div>
+                        <div class="stat-title">City Operations</div>
+                        <div class="stat-description">Pan-India presence delivering seamless digital and in-person
+                            consultations wherever you are</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🛡️</div>
+                        <div class="stat-number">24x7</div>
+                        <div class="stat-title">Client Support</div>
+                        <div class="stat-description">Round-the-clock support and claim assistance because your peace of
+                            mind is our priority</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements-section">
+        <div class="container">
+            <h2 class="section-title">Distinguished Achievements</h2>
+
+            <div class="achievement-cards">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-title">LIC Bangalore Division</div>
+                    <div class="achievement-desc">Top Performer since 2010 - Consistent excellence spanning over a
+                        decade</div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-title">Speed & Empathy</div>
+                    <div class="achievement-desc">Death claims settled in record time with compassion and understanding
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎖️</div>
+                    <div class="achievement-title">State Award Winner</div>
+                    <div class="achievement-desc">Recognized for exceptional public service and insurance excellence
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🌟</div>
+                    <div class="achievement-title">MDRT Membership</div>
+                    <div class="achievement-desc">Global recognition for outstanding performance and professional
+                        excellence</div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">👥</div>
+                    <div class="achievement-title">Mentorship Legacy</div>
+                    <div class="achievement-desc">Built leaders and achievers across the country through guidance and
+                        expertise</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="associations-section">
+        <div class="container">
+            <h2 class="section-title">Our Trusted Associations</h2>
+            <p class="section-subtitle">Partnering with India's Leading Financial Institutions</p>
+
+            <div class="associations-grid">
+                <div class="association-card flagship">
+                    <div class="association-logo">
+                        <div class="logo-circle">LIC</div>
+                        <div class="logo-pulse"></div>
+                    </div>
+                    <div class="association-name">LIC of India</div>
+                    <div class="association-type">Life Insurance</div>
+                    <div class="association-desc">India's most trusted life insurance provider with a legacy spanning
+                        decades</div>
+                    <div class="association-badge">National Leader</div>
+                </div>
+
+                <div class="association-card">
+                    <div class="association-logo">
+                        <div class="logo-circle">⭐</div>
+                    </div>
+                    <div class="association-name">Star Health</div>
+                    <div class="association-type">Health Insurance</div>
+                    <div class="association-desc">India's first standalone health insurance company, delivering
+                        comprehensive healthcare solutions</div>
+                    <div class="association-badge">Health Specialist</div>
+                </div>
+
+                <div class="association-card">
+                    <div class="association-logo">
+                        <div class="logo-circle">TA</div>
+                    </div>
+                    <div class="association-name">Tata AIG</div>
+                    <div class="association-type">Health & General Insurance</div>
+                    <div class="association-desc">Trusted Tata legacy combined with global AIG expertise for
+                        comprehensive protection</div>
+                    <div class="association-badge">Global Partnership</div>
+                </div>
+
+                <div class="association-card premium">
+                    <div class="association-logo">
+                        <div class="logo-circle">NJ</div>
+                        <div class="logo-shimmer"></div>
+                    </div>
+                    <div class="association-name">NJ Wealth</div>
+                    <div class="association-type">Investments & Mutual Funds</div>
+                    <div class="association-desc">India's largest mutual fund distributor enabling sophisticated
+                        investment strategies</div>
+                    <div class="association-badge">Market Leader</div>
+                </div>
+            </div>
+
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <div class="trust-text">Regulated & Certified</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🤝</div>
+                    <div class="trust-text">Strategic Partnerships</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <div class="trust-text">Seamless Integration</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🎯</div>
+                    <div class="trust-text">Best-in-Class Products</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nextgen-section">
+        <div class="container">
+            <div class="nextgen-header">
+                <h2 class="section-title">Next-Gen Expansion</h2>
+                <div class="nextgen-intro">
+                    <div class="leader-profile">
+                        <div class="leader-avatar">
+                            <div class="avatar-inner">VS</div>
+                            <div class="avatar-ring"></div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Vignesh Anant Shet</h3>
+                            <p class="leader-subtitle">MBA Finance | NISM Certified | AMFI Registered</p>
+                        </div>
+                    </div>
+                    <p class="nextgen-description">
+                        The next generation of Winspire Wealth is ready to serve modern financial needs with
+                        cutting-edge expertise and digital-first solutions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="nextgen-grid">
+                <div class="nextgen-card primary">
+                    <div class="nextgen-icon">🏛️</div>
+                    <div class="nextgen-title">NJ Wealth Partnership</div>
+                    <div class="nextgen-desc">Associated with India's Largest Mutual Fund Distributor, bringing
+                        institutional expertise to individual investors</div>
+                    <div class="nextgen-badge">India's #1 Distributor</div>
+                </div>
+
+                <div class="nextgen-card">
+                    <div class="nextgen-icon">📊</div>
+                    <div class="nextgen-title">NISM VIII Certified</div>
+                    <div class="nextgen-desc">Equity Derivatives expertise enabling sophisticated investment strategies
+                        and risk management</div>
+                    <div class="nextgen-badge">Advanced Trading</div>
+                </div>
+
+                <div class="nextgen-card">
+                    <div class="nextgen-icon">📈</div>
+                    <div class="nextgen-title">NISM V-A Certified</div>
+                    <div class="nextgen-desc">Mutual Funds specialization providing comprehensive portfolio management
+                        and advisory services</div>
+                    <div class="nextgen-badge">Portfolio Management</div>
+                </div>
+
+                <div class="nextgen-card digital">
+                    <div class="nextgen-icon">💻</div>
+                    <div class="nextgen-title">Digital-First Solutions</div>
+                    <div class="nextgen-desc">Personalized wealth solutions leveraging technology for seamless client
+                        experience and real-time insights</div>
+                    <div class="nextgen-badge">Tech-Enabled</div>
+                </div>
+            </div>
+
+            <div class="expansion-focus">
+                <h4 class="focus-title">Strategic Expansion Areas</h4>
+                <div class="focus-grid">
+                    <div class="focus-item">
+                        <div class="focus-icon">💼</div>
+                        <div class="focus-name">Mutual Funds</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">🏖️</div>
+                        <div class="focus-name">Retirement Planning</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">📊</div>
+                        <div class="focus-name">Investment Advisory</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="leadership-section">
+        <div class="container">
+            <h2 class="section-title">Community Leadership & Excellence</h2>
+            <p class="section-subtitle">Building Communities, Inspiring Change, Leading by Example</p>
+
+            <div class="leadership-grid">
+                <div class="leadership-card featured">
+                    <div class="leadership-icon">🏢</div>
+                    <div class="leadership-badge">9 Years</div>
+                    <div class="leadership-title">BNI Exponential</div>
+                    <div class="leadership-desc">Member of Bangalore's #1 Chapter - Excellence in networking and
+                        business development</div>
+                    <div class="leadership-highlight">Bangalore's Premier Chapter</div>
+                </div>
+
+                <div class="leadership-card featured">
+                    <div class="leadership-icon">🎓</div>
+                    <div class="leadership-badge">18 Years</div>
+                    <div class="leadership-title">Indian Institute of Excellence</div>
+                    <div class="leadership-desc">Nearly two decades of continuous learning and professional development
+                    </div>
+                    <div class="leadership-highlight">Legacy of Excellence</div>
+                </div>
+
+                <div class="leadership-card premium">
+                    <div class="leadership-icon">🌟</div>
+                    <div class="leadership-badge">USA</div>
+                    <div class="leadership-title">Million Dollar Round Table</div>
+                    <div class="leadership-desc">Exclusive global membership recognizing top insurance and financial
+                        services professionals</div>
+                    <div class="leadership-highlight">Global Recognition</div>
+                </div>
+
+                <div class="leadership-card">
+                    <div class="leadership-icon">🚀</div>
+                    <div class="leadership-badge">Founder</div>
+                    <div class="leadership-title">Secretary</div>
+                    <div class="leadership-desc">Bangalore Daivagna Yuvaka Sangha - Leading community initiatives and
+                        cultural preservation</div>
+                    <div class="leadership-highlight">Community Builder</div>
+                </div>
+
+                <div class="leadership-card">
+                    <div class="leadership-icon">👑</div>
+                    <div class="leadership-badge">Former</div>
+                    <div class="leadership-title">BNI Chapter President</div>
+                    <div class="leadership-desc">Exceptional leadership driving chapter growth and member success</div>
+                    <div class="leadership-highlight">Proven Leader</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <a href="#contact" class="cta-button">Experience Excellence</a>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth scrolling animation for cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.stat-card, .achievement-card, .leadership-card, .nextgen-card, .association-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add parallax effect to floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelector('.floating-elements');
+            if (parallaxElements) {
+                parallaxElements.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add number counting animation
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.stat-number');
+            numbers.forEach(number => {
+                const finalValue = number.textContent;
+                const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+                const prefix = finalValue.replace(/[0-9]/g, '');
+
+                if (numericValue) {
+                    let currentValue = 0;
+                    const increment = numericValue / 50;
+                    const timer = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= numericValue) {
+                            number.textContent = finalValue;
+                            clearInterval(timer);
+                        } else {
+                            number.textContent = prefix + Math.floor(currentValue) + (finalValue.includes('+') ? '+' : '');
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // Trigger number animation when section comes into view
+        const statsSection = document.querySelector('.hero-section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+    </script>
+</body>
+
+</html>
